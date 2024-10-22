@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:produitsapp/produit_box.dart';
 
 class ProduitsList extends StatelessWidget {
+   ProduitsList({super.key});
+
   final List<Map<String, dynamic>> liste = [
-    {"nom": "1 Produit", "selectionne": false},
-    {"nom": "2 Produit", "selectionne": true},
-    {"nom": "3 Produit", "selectionne": false},
-    {"nom": "4 Produit", "selectionne": false},
-    {"nom": "5 Produit", "selectionne": false},
+    {"nomProduit": "1 Produit", "estDisponible": false},
+    {"nomProduit": "2 Produit", "estDisponible": true},
+    {"nomProduit": "3 Produit", "estDisponible": false},
+    {"nomProduit": "4 Produit", "estDisponible": false},
+    {"nomProduit": "5 Produit", "estDisponible": false},
   ];
 
   @override
@@ -19,10 +21,12 @@ class ProduitsList extends StatelessWidget {
       body: ListView.builder(
         itemCount: liste.length,
         itemBuilder: (context, index) {
-          return ProduitBox(nomProduit: liste[index][0],
+          return ProduitBox(
+            nomProduit: liste[index]["nomProduit"], 
           );
         },
       ),
     );
   }
 }
+
