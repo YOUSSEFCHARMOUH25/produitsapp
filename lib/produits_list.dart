@@ -35,6 +35,12 @@ class _ProduitsListState extends State<ProduitsList> {
     });
   }
 
+  void delProduit(int index) {
+    setState(() {
+      liste.removeAt(index);
+    });
+  }
+
   void showAddProduitDialog() {
     showDialog(
       context: context,
@@ -65,6 +71,7 @@ class _ProduitsListState extends State<ProduitsList> {
             nomProduit: liste[index]["nomProduit"],
             selProduit: liste[index]["estDisponible"],
             onChanged: (value) => onChanged(value, index),
+            delproduit: (context) => delProduit(index),
           );
         },
       ),
